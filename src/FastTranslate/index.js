@@ -15,7 +15,12 @@ module.exports = async function ({ base, target, provider = 'google', format, to
   const targetFile = decoder(target);
 
   const result = await MergeDiff(baseFile, targetFile, {
-    set: async (diff) => await translate({ text: diff.value, to: to })
+    set: async (diff) => {
+      process.stdout.clearLine();
+      process.stdout.cursorTo(0);
+      process.stdout.write(`moonshot.partners | Fast Translate: ${diff.value}, to: ${to}`);
+      return await translate({ text: diff.value, to: to });
+    }
   });
 
   const ok = await encoder(result, target);
