@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "fast-translate": "./index.js"
+  },
   "scripts": {
     "test": "jest",
     "lint": "prettylint 'src/**/*.js' './index.js' 'tests/**/*.js'",
