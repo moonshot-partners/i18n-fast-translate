@@ -1,12 +1,13 @@
-#!/usr/bin/env node
+const { exec } = require('child_process');
 
-module.exports = function () {
+module.exports = async function () {
   const FastTranslate = require('../FastTranslate');
   const { argv } = require('yargs');
   const decoder = require('../decoders/json');
   const base = argv.base;
   const target = argv.target;
   const format = argv.format || 'json';
+  const commit = argv.commit;
 
   if (base && target) {
     FastTranslate({
@@ -28,5 +29,17 @@ module.exports = function () {
         to: translate.to
       });
     });
+
+    await Promise.all(tasks);
+
+    if (commit) {
+      exec(`git add . && git commit -m "i18n-fast-translate update files"`, function (
+        error,
+        stdout,
+        stderr
+      ) {
+        console.log(stdout);
+      });
+    }
   }
 };
