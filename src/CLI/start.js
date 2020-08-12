@@ -10,13 +10,10 @@ module.exports = async function () {
   const commit = argv.commit;
 
   if (base && target) {
-    FastTranslate({
+    await FastTranslate({
       base: argv.base,
       target: argv.target,
       format: format
-    }).then((data) => {
-      console.log('data');
-      console.log(JSON.stringify(data));
     });
   } else {
     const config = decoder('.fast-translate.json');

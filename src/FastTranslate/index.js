@@ -1,5 +1,5 @@
 const MergeDiff = require('../MergeDiff');
-
+const readline = require('readline');
 const VALID_FORMATS = ['json', 'yaml'];
 
 module.exports = async function ({ base, target, provider = 'google', format, to }) {
@@ -16,8 +16,8 @@ module.exports = async function ({ base, target, provider = 'google', format, to
 
   const result = await MergeDiff(baseFile, targetFile, {
     set: async (diff) => {
-      process.stdout.clearLine();
-      process.stdout.cursorTo(0);
+      readline.clearLine(process.stdout, 0);
+      readline.cursorTo(process.stdout, 0, null);
       process.stdout.write(`moonshot.partners | Fast Translate: ${diff.value}, to: ${to}`);
       return await translate({ text: diff.value, to: to });
     }
