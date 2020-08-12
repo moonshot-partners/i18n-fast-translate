@@ -5,7 +5,7 @@ class TaskManager {
     this.tasks.push(task);
   }
 
-  async performAll({ concurrent = 10 } = {}) {
+  async performAll({ concurrent = 5 } = {}) {
     const size = this.tasks.length > concurrent ? concurrent : this.tasks.length;
     const promises = [];
 
