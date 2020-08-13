@@ -8,6 +8,6 @@ describe('Encoder: JSON', function () {
     const data = { field: 'mock' };
     fs.writeFileSync.mockReturnValue('mock');
     await json(data, 'path-mock');
-    expect(fs.writeFileSync).toHaveBeenCalledWith('path-mock', JSON.stringify(data));
+    expect(fs.writeFileSync).toHaveBeenCalledWith('path-mock', JSON.stringify(data, null, 2));
   });
 });
