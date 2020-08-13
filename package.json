@@ -1,5 +1,5 @@
 {
-  "name": "i18n-fast-translate",
+  "name": "@moonshot-partners/i18n-fast-translate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -25,5 +25,8 @@
     "jest": "^26.3.0",
     "prettier": "^2.0.5",
     "prettylint": "^1.0.0"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
   }
 }
