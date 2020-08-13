@@ -1,5 +1,5 @@
 const fs = require('fs');
 
 module.exports = async function (content, path) {
-  fs.writeFileSync(path, JSON.stringify(content));
+  fs.writeFileSync(path, JSON.stringify(content, null, 2));
 };

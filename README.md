@@ -1,4 +1,8 @@
 
+![](https://github.com/moonshot-partners/i18n-fast-translate/workflows/Node.js%20CI/badge.svg?branch=master) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+
+
 ![image](https://user-images.githubusercontent.com/4649902/90065414-ddfeb200-dcb1-11ea-97d4-6673f0e4034a.png)
 
 # I18n Fast Translate 
