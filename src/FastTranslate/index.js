@@ -7,6 +7,8 @@ module.exports = async function ({ base, target, provider = 'google', format, to
     throw `FastTranslate doesn't allow this format (${format.toLowerCase()})`;
   }
 
+  let changed = false;
+
   const decoder = require(`../decoders/${format.toLowerCase()}`);
   const encoder = require(`../encoders/${format.toLowerCase()}`);
   const translate = require(`../providers/${provider}`);
@@ -19,10 +21,14 @@ module.exports = async function ({ base, target, provider = 'google', format, to
       readline.clearLine(process.stdout, 0);
       readline.cursorTo(process.stdout, 0, null);
       process.stdout.write(`moonshot.partners | Fast Translate: ${diff.value}, to: ${to}`);
+      changed = true;
       return await translate({ text: diff.value, to: to });
     }
   });
 
-  const ok = await encoder(result, target);
+  if (changed) {
+    await encoder(result, target);
+  }
+
   return result;
 };

@@ -6,6 +6,7 @@ const Config = require('./config');
 module.exports = async function setDiff(base = {}, target = {}, options = {}) {
   const config = Config(options);
   const tasks = new TasksManager();
+  let changed = false;
 
   async function diff(obj, key) {
     const hash = await obj;
