@@ -88,7 +88,7 @@ export GOOGLE_TRANSLATE_V2_API_KEY="YOUR API KEY"
 **Config key**
 
 ```json
-{ "provider": "google" }
+{ "provider": "google-v2" }
 ```
 
 ### Configuration
