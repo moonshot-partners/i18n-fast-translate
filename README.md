@@ -24,14 +24,9 @@
 
 ## Installation
 
-```bash 
-npm install -g @moonshot-partners/i18n-fast-translate
-```
-
-or
-
-```bash 
-npm install @moonshot-partners/i18n-fast-translate --save-dev
+add in your package.json
+```json 
+"@moonshot-partners/i18n-fast-translate": "moonshot-partners/i18n-fast-translate"
 ```
 
 ## Usage
